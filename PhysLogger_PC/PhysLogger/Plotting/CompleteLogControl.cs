@@ -120,6 +120,7 @@ namespace PhysLogger
             InitializeComponent();
             HW = new LoggerHardware();
             HW.OnSignatureUpdate += HW_OnSignatureUpdate;
+            HW.OnDisconnectRequested += HW_OnDisconnectRequested;
             ChannelEditors = new ChannelEditor[NoS];
             for (int i = 0; i < NoS; i++)
             {
@@ -176,15 +177,33 @@ namespace PhysLogger
         {
             HW = new PhysLogger1_0Virtual();
             Logger_1_0Attached();
-        }
-        private void HW_OnSignatureUpdate(object sender, EventArgs e)
-        {
-            if (HW.Signature == PhysLoggerHWSignature.PhysLogger1_0)
-            {
-                HW = new PhysLogger1_0HW();
-                Logger_1_0Attached();
-            }
             OnHWSignatureUpdate.Invoke(HW, new EventArgs());
+        }
+        private void HW_OnSignatureUpdate(PhysLoggerHWSignature oldSignature, PhysLoggerHWSignature newSignature)
+        {
+            if (oldSignature == PhysLoggerHWSignature.Unknown)// new connection signature update
+            {
+                if (newSignature == PhysLoggerHWSignature.PhysLogger1_0)
+                {
+                    HW = new PhysLogger1_0HW();
+                    Logger_1_0Attached();
+                }
+                else if (newSignature == PhysLoggerHWSignature.PhysLogger1_1)
+                {
+                    HW = new PhysLogger1_1HW();
+                    Logger_1_1Attached();
+                }
+                else if (newSignature == PhysLoggerHWSignature.PhysLogger1_2)
+                {
+                    HW = new PhysLogger1_2HW();
+                    Logger_1_2Attached();
+                }
+                OnHWSignatureUpdate.Invoke(HW, new EventArgs());
+            }
+            else
+            {
+                HW.SignatureReceived(newSignature);
+            }
         }
         void Logger_1_0Attached()
         {
@@ -192,6 +211,37 @@ namespace PhysLogger
             HW.OnSignatureUpdate += HW_OnSignatureUpdate;
             HW.OnCommandSendRequest += HW_OnCommandSendRequest;
             HW.OnSamplingRateChanged += HW_OnSamplingRateChanged;
+            HW.OnDisconnectRequested += HW_OnDisconnectRequested;
+            var channelHWOpsHW = HW.EnumerateChannelOptions();
+            // if (dsCollection.Count != channelHWOpsHW.Count)
+            //    // This version doesn't support this loggerHW
+            for (int i = 0; i < 4; i++)
+            {
+                dsCollection[i].ChannelOptions.HardwareOptions = channelHWOpsHW[i];
+                dsCollection[i].ChannelOptions.HardwareOptions.TopParent = dsCollection[i].ChannelOptions;
+                dsCollection[i].ChannelOptions.SoftwareOptions.TopParent = dsCollection[i].ChannelOptions;
+            }
+        }
+
+        private void HW_OnDisconnectRequested(object sender, EventArgs e)
+        {
+            DataPort.Disconnect();
+            HW = new LoggerHardware();
+            HW.OnSignatureUpdate += HW_OnSignatureUpdate;
+            HW.OnDisconnectRequested += HW_OnDisconnectRequested;
+        }
+
+        void Logger_1_2Attached()
+        {
+            Logger_1_1Attached();
+        }
+        void Logger_1_1Attached()
+        {
+            HW.NewPointReceived += HW_NewPointReceived;
+            HW.OnSignatureUpdate += HW_OnSignatureUpdate;
+            HW.OnCommandSendRequest += HW_OnCommandSendRequest;
+            HW.OnSamplingRateChanged += HW_OnSamplingRateChanged;
+            HW.OnDisconnectRequested += HW_OnDisconnectRequested;
             var channelHWOpsHW = HW.EnumerateChannelOptions();
             // if (dsCollection.Count != channelHWOpsHW.Count)
             //    // This version doesn't support this loggerHW
@@ -227,7 +277,7 @@ namespace PhysLogger
         }
         private void HW_NewPointReceived(float x, float[] values, PlotLabel [] units)
         {
-            logControl.AppendLog(x, values);
+            logControl.AppendLog(x, values, HW.Signature == PhysLoggerHWSignature.PhysLogger1_0 ? true : false);
             if (dsCollection.TimeStamps.Count > 0)
                 OnSessionLifeUpdated?.Invoke(dsCollection.TimeStampsMax());
             for (int i = 0; i < values.Length; i++)
@@ -256,7 +306,8 @@ namespace PhysLogger
         {
             HW.ParseCommand(command, DataPort.Channel);
         }
-
+        public void serialChannelControl1_Disconnected(object sender, EventArgs e)
+        { HW.Signature = PhysLoggerHWSignature.Unknown; }
         private ChannelEditor Ds_GetEditorRequest(TimeSeries sender)
         {
             return ChannelEditors[sender.ID];

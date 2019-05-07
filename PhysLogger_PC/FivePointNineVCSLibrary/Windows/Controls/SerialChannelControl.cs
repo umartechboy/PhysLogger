@@ -56,6 +56,7 @@ namespace FivePointNine.Windows.Controls
 
         public void Disconnect()
         {
+            PortAddress = "";
             hasUiUpdate = true;
             disconnectSP(); 
         }
@@ -111,7 +112,7 @@ namespace FivePointNine.Windows.Controls
                     inSpPoll = false;
                     return;
                 }
-                if (toRead >= 15)
+                if (toRead >= 3)
                 {
                     var com = new PacketCommandMini();
                     var resp = ProtocolError.Unknown;
@@ -119,7 +120,7 @@ namespace FivePointNine.Windows.Controls
                     {
                         resp = PacketCommandMini.FromStream(ref com, Channel, 10, flushTB);
                     }
-                    catch
+                    catch (Exception ex)
                     {
                         disconnectSP();
                         inSpPoll = false;
@@ -138,6 +139,7 @@ namespace FivePointNine.Windows.Controls
             }
             inSpPoll = false;
         }
+        public string PortAddress { get; protected set; } = "";
 
         public void AddAddress(string address)
         {
@@ -180,6 +182,7 @@ namespace FivePointNine.Windows.Controls
                     Channel.ReadBufferSize = 1024 * 1024 * 10;
                 }
                 Channel.Open();
+                PortAddress = address;
                 Connected?.Invoke(this, new EventArgs());
                 connectB_Text = "Disconnect";
 

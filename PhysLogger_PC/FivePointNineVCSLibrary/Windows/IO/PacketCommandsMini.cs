@@ -168,7 +168,7 @@ namespace FivePointNine.Windows.IO
             }
             set
             {
-                if (value > 30)
+                if (value > 31)
                     throw new Exception("Overflow");
                 comData_[0] &= 0x07;
                 comData_[0] |= (byte)(value << 3);

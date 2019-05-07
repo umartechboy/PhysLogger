@@ -19,7 +19,10 @@ namespace FivePointNine.Windows.IO
         public override void Close()
         { sp.Close(); }
         public override void Write(byte[] data, int offset, int length)
-        { sp.Write(data, offset, length); }
+        {
+            sp.WriteTimeout = 50;
+            sp.Write(data, offset, length);
+        }
         public override int Read(byte[] data, int offset, int length)
         {
             return sp.Read(data, offset, length);

@@ -49,6 +49,9 @@ namespace PhysLogger
             this.rawToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.withHeadersToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.screenShotToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.installArduinoDrivresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.updateFirmwareToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sessionLifeL = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -134,7 +137,8 @@ namespace PhysLogger
             this.menuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
-            this.exportToolStripMenuItem});
+            this.exportToolStripMenuItem,
+            this.toolsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(925, 24);
@@ -194,14 +198,14 @@ namespace PhysLogger
             // rawToolStripMenuItem
             // 
             this.rawToolStripMenuItem.Name = "rawToolStripMenuItem";
-            this.rawToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.rawToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.rawToolStripMenuItem.Text = "Raw";
             this.rawToolStripMenuItem.Click += new System.EventHandler(this.rawToolStripMenuItem_Click);
             // 
             // withHeadersToolStripMenuItem
             // 
             this.withHeadersToolStripMenuItem.Name = "withHeadersToolStripMenuItem";
-            this.withHeadersToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.withHeadersToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.withHeadersToolStripMenuItem.Text = "With Headers";
             this.withHeadersToolStripMenuItem.Click += new System.EventHandler(this.withHeadersToolStripMenuItem_Click);
             // 
@@ -234,6 +238,29 @@ namespace PhysLogger
             this.screenShotToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.screenShotToolStripMenuItem.Text = "Take Screen Shot";
             this.screenShotToolStripMenuItem.Click += new System.EventHandler(this.screenShotToolStripMenuItem_Click);
+            // 
+            // toolsToolStripMenuItem
+            // 
+            this.toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.installArduinoDrivresToolStripMenuItem,
+            this.updateFirmwareToolStripMenuItem});
+            this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
+            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
+            this.toolsToolStripMenuItem.Text = "Tools";
+            // 
+            // installArduinoDrivresToolStripMenuItem
+            // 
+            this.installArduinoDrivresToolStripMenuItem.Name = "installArduinoDrivresToolStripMenuItem";
+            this.installArduinoDrivresToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
+            this.installArduinoDrivresToolStripMenuItem.Text = "Install Arduino Drivers";
+            this.installArduinoDrivresToolStripMenuItem.Click += new System.EventHandler(this.installArduinoDrivresToolStripMenuItem_Click);
+            // 
+            // updateFirmwareToolStripMenuItem
+            // 
+            this.updateFirmwareToolStripMenuItem.Name = "updateFirmwareToolStripMenuItem";
+            this.updateFirmwareToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
+            this.updateFirmwareToolStripMenuItem.Text = "Update Firmware";
+            this.updateFirmwareToolStripMenuItem.Click += new System.EventHandler(this.updateFirmwareToolStripMenuItem_Click);
             // 
             // sessionLifeL
             // 
@@ -440,6 +467,9 @@ namespace PhysLogger
         private System.Windows.Forms.Label label4;
         private FivePointNine.Windows.Controls.FlatComboBox flatNumericUpDown1;
         private System.Windows.Forms.ToolStripMenuItem screenShotToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem installArduinoDrivresToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem updateFirmwareToolStripMenuItem;
     }
 }
 

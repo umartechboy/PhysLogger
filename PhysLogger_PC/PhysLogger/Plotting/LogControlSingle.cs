@@ -67,7 +67,7 @@ namespace PhysLogger
             {
                 g.SmoothingMode = SmoothingMode.AntiAlias;
                 g.Clip = new Region(DrawPlotArea);
-                DataSeries.Draw(g, (int)DrawPlotArea.Width, (int)DrawPlotArea.Height, xOffsetG, yOffsetG, XPPU, YPPU, false);
+                DataSeries.Draw(g, (int)DrawPlotArea.Width, (int)(Height - XLabelHeight), xOffsetG, yOffsetG, XPPU, YPPU, false);
             }
 
             g.Clip = new Region(new RectangleF(0,0,Width, Height));

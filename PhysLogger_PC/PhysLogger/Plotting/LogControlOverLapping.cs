@@ -124,7 +124,7 @@ namespace PhysLogger
                     {
                         if (DataSeries != HoverOver)
                         {
-                            DataSeries.Draw(g, (int)DrawPlotArea.Width, (int)DrawPlotArea.Height, xOffsetG, yOffsetG, XPPU, YPPU, false);
+                            DataSeries.Draw(g, (int)DrawPlotArea.Width, (int)(Height - XLabelHeight), xOffsetG, yOffsetG, XPPU, YPPU, false);
                         }
                     }
                 }

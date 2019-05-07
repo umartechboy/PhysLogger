@@ -119,36 +119,48 @@ namespace FivePointNine.Windows.Controls
         Dictionary<string, int> portScores = new Dictionary<string, int>();
         private void resumeSession()
         {
-            try
+            //try
+            //{
+            ManagementObjectSearcher searcher =
+                new ManagementObjectSearcher("root\\CIMV2",
+                "SELECT * FROM Win32_PnPEntity");
+            portScores = new Dictionary<string, int>();
+            Items.Clear();
+            var o1 = searcher.Get();
+            var o2 = o1.Cast<ManagementObject>();
+            var o3 = o2.ToList();
+            foreach (var qo in o3)
             {
-                ManagementObjectSearcher searcher =
-                    new ManagementObjectSearcher("root\\CIMV2",
-                    "SELECT * FROM Win32_PnPEntity");
-                portScores = new Dictionary<string, int>();
-                Items.Clear();
-                var objs = searcher.Get().Cast<ManagementObject>().ToList().Select(obj => obj["Caption"].ToString()).ToList();
-                foreach (string queryObj in objs)
+                if (qo == null)
+                    continue;
+                if (qo["Caption"] == null)
+                    continue;
+                var queryObj = qo["Caption"].ToString();
+                try
                 {
                     if (queryObj == null) continue;
                     if (queryObj.Contains("COM"))
                     {
                         string port = queryObj;
-                        try
-                        {
-                            portScores.Add(port, portNameScore(port));
-                            Items.Add(port);
-                        }
-                        catch { }
+                        if (portScores.ContainsKey(port))
+                            continue;
+                        portScores.Add(port, portNameScore(port));
+                        Items.Add(port);
+
                     }
                 }
+                catch (Exception ex)
+                {
+                }
             }
-            catch (Exception ex)
-            {
-            }
+            //}
+            //catch (Exception ex)
+            //{
+            //}
 
 
-        DevicesRefreshed?.Invoke(this, null);
-        Text = BestPort;
+            DevicesRefreshed?.Invoke(this, null);
+            Text = BestPort;
         }
         public string BestPort
         {

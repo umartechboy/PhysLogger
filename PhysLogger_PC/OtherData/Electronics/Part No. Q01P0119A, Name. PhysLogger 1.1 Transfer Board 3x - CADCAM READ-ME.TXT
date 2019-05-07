@@ -1,0 +1,46 @@
+LABCENTER PROTEUS TOOL INFORMATION FILE
+=======================================
+
+In case of difficulty, please e-mail support@labcenter.co.uk
+
+Tool set up for Proteus layout 'Part No. Q01P0119A, Name. PhysLogger 1.1 Transfer Board 5x.pdsprj'.
+CADCAM generated at 11:02:03 AM on Friday, March 22, 2019.
+
+File List
+---------
+Bottom Copper           : Part No. Q01P0119A, Name. PhysLogger 1.1 Transfer Board 3x - CADCAM Bottom Copper.GBR
+Drill                   : Part No. Q01P0119A, Name. PhysLogger 1.1 Transfer Board 3x - CADCAM Drill.DRL
+Netlist                 : Part No. Q01P0119A, Name. PhysLogger 1.1 Transfer Board 3x - CADCAM Netlist.IPC
+
+Photoplotter Setup
+------------------
+Format: RS274X, ASCII, 2.4, imperial, absolute, eob=*, LZO
+Notes:  D=Diameter, S=Side, W=Width, H=Height, C=Chamfer, I=Index
+
+D10	CIRCLE  D=70th                                                            DRAW 
+D11	CIRCLE  D=30th                                                            FLASH
+D12	CIRCLE  D=10th                                                            DRAW 
+D13	SQUARE  S=80th                                                            FLASH
+D14	CIRCLE  D=90th                                                            FLASH
+D15	SQUARE  S=120th                                                           FLASH
+D16	SQUARE  S=50.394th                                                        FLASH
+D17	CIRCLE  D=10th                                                            FLASH
+D18	CIRCLE  D=50.394th                                                        FLASH
+D19	CIRCLE  D=70th                                                            FLASH
+D70	CIRCLE  D=8th                                                             DRAW 
+D71	CIRCLE  D=5th                                                             DRAW 
+D20	CIRCLE  D=2.5th                                                           DRAW 
+
+NC Drill Setup
+--------------
+Format: Excellon, ASCII, 2.4, imperial, absolute, eob=<CR><LF>, no zero suppression.
+Notes:  Tool sizes are diameters. Layer sets are in brackets - 0=TOP, 15=BOTTOM, 1-14=INNER.
+
+T01	15th (0-15) Plated
+T02	40th (0-15) Plated
+T03	60th (0-15) Plated
+T04	33.5th (0-15) Plated
+T05	30th (0-15) Plated
+
+
+[END OF FILE]

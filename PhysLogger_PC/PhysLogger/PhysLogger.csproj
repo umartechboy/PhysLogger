@@ -35,6 +35,9 @@
   <PropertyGroup>
     <ApplicationIcon>IconPng.ico</ApplicationIcon>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="FivePointNine.LicenseManager">
       <HintPath>.\FivePointNine.LicenseManager.dll</HintPath>
@@ -63,6 +66,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\AskFloat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AskFloat.Designer.cs">
+      <DependentUpon>AskFloat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ConsoleStyleTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Forms\PhysLoggerUpdaterConsole.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PhysLoggerUpdaterConsole.Designer.cs">
+      <DependentUpon>PhysLoggerUpdaterConsole.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\SaveControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -78,6 +96,9 @@
     <Compile Include="Hardware\ChannelOptions.cs" />
     <Compile Include="Hardware\Enums.cs" />
     <Compile Include="Hardware\Instruments.cs" />
+    <Compile Include="Hardware\PhysLogger1_0.cs" />
+    <Compile Include="Hardware\PhysLogger1_1.cs" />
+    <Compile Include="Hardware\PhysLogger1_2.cs" />
     <Compile Include="Hardware\PhysLoggerVirtual.cs" />
     <Compile Include="Maths\Function.cs" />
     <Compile Include="Maths\UnitConversion.cs" />
@@ -89,11 +110,11 @@
     </Compile>
     <Compile Include="Hardware\PhysLoggerHardware.cs" />
     <Compile Include="Plotting\DataSeries.cs" />
-    <Compile Include="LogControls\ChennelEditor.cs">
+    <Compile Include="LogControls\ChannelEditor.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="LogControls\ChennelEditor.Designer.cs">
-      <DependentUpon>ChennelEditor.cs</DependentUpon>
+    <Compile Include="LogControls\ChannelEditor.Designer.cs">
+      <DependentUpon>ChannelEditor.cs</DependentUpon>
     </Compile>
     <Compile Include="LogControls\legendLinePanel.cs">
       <SubType>Component</SubType>
@@ -135,11 +156,17 @@
     <Compile Include="Plotting\CompleteLogControl.Designer.cs">
       <DependentUpon>CompleteLogControl.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Forms\AskFloat.resx">
+      <DependentUpon>AskFloat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PhysLoggerUpdaterConsole.resx">
+      <DependentUpon>PhysLoggerUpdaterConsole.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\SaveData.resx">
       <DependentUpon>SaveData.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LogControls\ChennelEditor.resx">
-      <DependentUpon>ChennelEditor.cs</DependentUpon>
+    <EmbeddedResource Include="LogControls\ChannelEditor.resx">
+      <DependentUpon>ChannelEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Plotting\LogPlotCascadeUC.resx">
       <DependentUpon>LogPlotCascadeUC.cs</DependentUpon>
@@ -159,6 +186,7 @@
     <EmbeddedResource Include="Plotting\CompleteLogControl.resx">
       <DependentUpon>CompleteLogControl.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="app.manifest" />
     <None Include="ClassDiagram1.cd" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -199,9 +227,13 @@
       <Project>{7a0684b6-e6b4-414f-b410-b246f36d51c7}</Project>
       <Name>FivePointNineVCSLibrary</Name>
     </ProjectReference>
-    <ProjectReference Include="..\LoggerSimulator\LoggerSimulator.csproj">
-      <Project>{8b2ebfcc-8f7f-4c3c-b8c9-0891a72f17d2}</Project>
-      <Name>LoggerSimulator</Name>
+    <ProjectReference Include="..\SketchUploader\ArduinoSketchUploader\ArduinoSketchUploader.csproj">
+      <Project>{679338c5-351a-4e24-961b-a1550fff4c88}</Project>
+      <Name>ArduinoSketchUploader</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SketchUploader\ArduinoUploader\ArduinoUploader.csproj">
+      <Project>{76b83943-5e26-4a25-a2bc-074c13744150}</Project>
+      <Name>ArduinoUploader</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

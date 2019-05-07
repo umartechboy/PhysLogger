@@ -167,6 +167,8 @@ namespace PhysLogger
         public virtual void MinMaxAutoSetScaleMinMaxY(ref float minY, ref float maxY)
         { throw new NotImplementedException(); }
         protected float minYInDisplay = 0; float maxYInDisplay = 0;
+        // used by the overlay objects for a continuous scaling after mouse has been pressed once.
+        bool InScale = false, AutoScaleRequested = false;
         public void AutoSetScale()
         {
             float minY = 0, maxY = 0;
@@ -234,11 +236,24 @@ namespace PhysLogger
                 g.DrawLine(Pens.Black, 0, CursorG.Y, Width, CursorG.Y);
             }
             if (TimeUndershootInDisplay())
-                RightLimitImage.Draw(g, TentativeOp == MoveOp.goToZero);
+               RightLimitImage.Draw(g, TentativeOp == MoveOp.goToZero);
+            InScale = true;
             if (MinValueOvershootInDisplay())
+            {
                 DownLimitImage.Draw(g, TentativeOp == MoveOp.resetScale);
+                InScale = false;
+            }
             if (MaxValueOvershootInDisplay())
+            {
                 UpLimitImage.Draw(g, TentativeOp == MoveOp.resetScale);
+                InScale = false;
+            }
+            if (InScale)
+                AutoScaleRequested = false;
+            if (!InScale && AutoScaleRequested)
+            {
+                AutoSetScale();
+            }
         }
         public virtual void DrawSeriesAndAxis(FivePointNine.Windows.Graphics.Graphics2 g)
         {
@@ -328,7 +343,7 @@ namespace PhysLogger
             if (xog < w - yaWid && xog > 0)
                 g.DrawLine(axisP, xog, 0, xog, h - 15);
             // Y Axis
-            float unitY = 1e-8F; ;
+            float unitY = 1e-6F; ;
             multF = 5;
             // determine scale first
             while (unitY * ys < Font.Height * 1.5F)
@@ -354,7 +369,7 @@ namespace PhysLogger
             var ySigFiguresAfterD = 0;
             totalFigs = (unitY / 2 - Math.Floor(unitY / 2)).ToString().Length - 2;
 
-            while (Math.Round(unitY, ySigFiguresAfterD) == Math.Round(unitY / 2, xSigFiguresAfterD)
+            while (Math.Round(unitY, ySigFiguresAfterD) == Math.Round(unitY / 2, ySigFiguresAfterD)
                 && ySigFiguresAfterD <= totalFigs)
                 ySigFiguresAfterD++;
             for (float i = minY; i <= maxY; i += unitY / 2)
@@ -431,7 +446,7 @@ namespace PhysLogger
             else if (frac == float.NegativeInfinity)
                 return "-Inf";
             float fracBkp = frac;
-            if (frac < 1e-8 && frac > -1e-8)
+            if (frac > -1e-8 && frac < 1e-8)
                 return "0";
             float lc = 1 / (float)Math.Pow(10, significantFigures);
             double thisFrac = bringAbove1(frac, significantFigures);
@@ -614,7 +629,7 @@ namespace PhysLogger
             {
                 CurrentMoveOp = TentativeOp;
                 if (CurrentMoveOp == MoveOp.resetScale)
-                    AutoSetScale();
+                    AutoScaleRequested = true;
                 if (CurrentMoveOp == MoveOp.goToZero)
                 {
                     if (TimeStamps.Count == 0)
@@ -693,8 +708,12 @@ namespace PhysLogger
             g.DrawImage(drawHighlighted ? img : imgLight, r.X, r.Y);
         }
 
-        public bool Contains(Point p)
-        { return r.Contains(p); }
+        public bool Contains(Point p, int inflation = 4)
+        {
+            var R2 = r;
+            R2.Inflate(inflation, inflation);
+            return R2.Contains(p);
+        }
     }
     public enum MoveOp
     {

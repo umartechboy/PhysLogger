@@ -34,9 +34,16 @@ namespace PhysLogger.Maths
         protected List<CalibrationFunction> Items { get; set; } = new List<CalibrationFunction>();
         public CalibrationFunction Selected
         {
-            get { return Items.Find(item => item.MenuItem.Checked); }
+            get
+            {
+                if (Items.Count == 1)
+                    return Items[0];
+                return Items.Find(item => item.MenuItem.Checked);
+            }
             set
             {
+                if (Items.Count == 1)
+                    return;
                 foreach (var item in Items)
                     item.MenuItem.Checked = item == value;
             }
@@ -99,7 +106,7 @@ namespace PhysLogger.Maths
                 return new DegreesToRadiansFunction();
             else if (type == "r2d")
                 return new DegreesToRadiansFunction();
-            else if (type == "G1")
+            else if (type == "g1")
                 return new G1Function();
             else if (type == "expression")
                 return new AlgebraicFunction((string)paramters[0]);

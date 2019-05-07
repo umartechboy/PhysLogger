@@ -288,9 +288,13 @@ namespace PhysLogger
             var sz = g.MeasureString(s, f);
             g.DrawString(s, f, Brushes.Black, p.X - sz.Width / 2, p.Y);
         }
-        public void AppendLog(float time, float[] dataPoints)
+        DateTime lastDataPoint = DateTime.Now;
+        public void AppendLog(float time, float[] dataPoints, bool ClearIfTimeSuspicious)
         {
-            var changeX = dsCollection.AppendLog(time, dataPoints);
+            var changeX = dsCollection.AppendLog(
+                time, dataPoints, 
+                (float)(DateTime.Now - lastDataPoint).TotalMilliseconds / 1000.0F,
+                ClearIfTimeSuspicious);
             if (AutoScroll)
             {
                 if (dsCollection.TimeStamps.Count == 1)
@@ -301,6 +305,7 @@ namespace PhysLogger
                 xOffsetG -= changeX * XPPU;
             }
             needsRefresh = true;
+            lastDataPoint = DateTime.Now;
         }
         public void ClearAll()
         {
@@ -360,8 +365,7 @@ namespace PhysLogger
 
         private void autoScrollCB_CheckedChanged(object sender, EventArgs e)
         {
-            foreach (var log in SingleLogs)
-                log.AutoScroll = autoScrollCB.Checked;
+            AutoScroll = autoScrollCB.Checked;
         }
     }
     public enum LogLayout

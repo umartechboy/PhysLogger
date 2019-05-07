@@ -10,9 +10,6 @@ namespace PhysLogger.Hardware
 {
     public class PhysLogger1_0Virtual:PhysLogger1_0HW
     {
-        
-        public override event valueChangeHandler OnSamplingRateChanged;
-        public override event EventHandler OnSignatureUpdate;
         public override event SetPointHandler NewPointReceived;
         System.Windows.Forms.Timer virtualController;
         public PhysLogger1_0Virtual()
@@ -30,16 +27,16 @@ namespace PhysLogger.Hardware
         {
             if (first)
             {
-                OnSignatureUpdate(this, null);
-                OnSamplingRateChanged?.Invoke(1 / (float)virtualController.Interval * 1000.0F);
+                SignatureUpdates(PhysLoggerHWSignature.PhysLogger1_0_Virtual, PhysLoggerHWSignature.Unknown);
+                SamplingRateChanged(1 / (float)virtualController.Interval * 1000.0F);
                 first = false;
                 return;
             }
             var values = new float[] {
-                    analogToOutValue(Math.Max((float)Math.Sin(2 * Math.PI * 10 * t) * 1F, types[0] == ChannelType.AnalogInRSE?0:-0.5F), 0),
-                    analogToOutValue(Math.Max((float)Math.Sin(2 * Math.PI * 10 * t) * 0.6F + 0.6F, types[0] == ChannelType.AnalogInRSE?0:-0.5F), 1),
-                    analogToOutValue(Math.Max((float)Math.Cos(2 * Math.PI * 10 * t) * 1F, types[0] == ChannelType.AnalogInRSE ? 0:-0.5F), 2),
-                    analogToOutValue(Math.Max((float)Math.Cos(2 * Math.PI * 10 * t) * 0.6F + 0.6F, types[0] == ChannelType.AnalogInRSE ? 0:-0.5F), 3),
+                    analogToOutValue(Math.Max((float)Math.Sin(2 * Math.PI * 10 * t) * 1F, types[0] == ChannelType.AnalogInRSE?0:-1F), 0),
+                    analogToOutValue(Math.Max((float)Math.Sin(2 * Math.PI * 10 * t) * 0.6F + 0.6F, types[1] == ChannelType.AnalogInRSE?0:0F), 1),
+                    analogToOutValue(Math.Max((float)Math.Cos(2 * Math.PI * 10 * t) * 1F, types[2] == ChannelType.AnalogInRSE ? 0:-0.5F), 2),
+                    analogToOutValue(Math.Max((float)Math.Cos(2 * Math.PI * 10 * t) * 0.6F + 0.6F, types[3] == ChannelType.AnalogInRSE ? 0:-0.5F), 3),
                     };
             //values = new float[] { a0, a1, a2, a3 };
             var labels = new PlotLabel[]

@@ -10,8 +10,9 @@ namespace PhysLogger.Hardware
     {
         AnalogInDifferential = 0,
         AnalogInRSE = 1,
-        Instrument = 2,
-        Function = 3,
+        I2C = 2,
+        Instrument = 3,
+        Function = 5,
         None = 4,
     }
 }

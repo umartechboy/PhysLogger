@@ -114,8 +114,14 @@ namespace PhysLogger
             s.LineOpacity = Convert.ToSingle(str[offset]); offset++;
             s.LastPointHighlight = Convert.ToBoolean(str[offset]); offset++;
             s.Enabled = Convert.ToBoolean(str[offset]); offset++;
-            s.minDispYCached = Convert.ToSingle(str[offset]); offset++;
-            s.maxDispYCached = Convert.ToSingle(str[offset]); offset++;
+            try
+            {
+                s.minDispYCached = Convert.ToSingle(str[offset]);
+            }
+            catch { }
+            offset++;
+            try { s.maxDispYCached = Convert.ToSingle(str[offset]); }
+            catch { } offset++;
             return s;
         }
         public void Adapt(TimeSeries series)
@@ -226,6 +232,9 @@ namespace PhysLogger
                         {
                             float t = sumOfTimes / summedValues;
                             float v = sumOfValues / summedValues;
+
+                            if (double.IsPositiveInfinity(v))
+                                continue;
                             float vG = height - (v * ys + yog);
                             float tG = t * xs + xog;
                             if (tG >= 0 && tG <= width)
@@ -381,9 +390,8 @@ namespace PhysLogger
         float lastTime = -0.000001F;
         float controllerOffset = 0;
         bool resetControllerOffset = true;
-        public virtual float AppendLog(float time, float[] values)
+        public virtual float AppendLog(float time, float[] values, float dt, bool ClearIfTimeSuspicious)
         {
-
             if (tMax < time)
                 tMax = time;
             if (resetControllerOffset)
@@ -394,15 +402,18 @@ namespace PhysLogger
             }
 
             time -= controllerOffset;
-            if (time < 0)
+            if (time < 0 || time < lastTime) // controller has reset
             {
-                ClearAll();
-                return 0;
-            }
-            if (time < lastTime )
-            {
-                ClearAll();
-                return 0;
+                if (ClearIfTimeSuspicious)
+                {
+                    ClearAll();
+                    return 0;
+                }
+                else
+                {
+                    time = lastTime + dt - controllerOffset;
+                    tMax = time;
+                }
             }
             if (seriesList.Count != values.Length)
                 throw new Exception("Data size mismatch");
@@ -471,11 +482,11 @@ namespace PhysLogger
             StringBuilder sw = new StringBuilder();
             if (addHeader)
             {
-                sw.Append("Sr.No.\ttime_s");
+                sw.Append("Sr_No_\ttime_s");
                 foreach (var s in seriesList)
                 {
                     if (s.Enabled)
-                        sw.Append("\t" + s.Name);
+                        sw.Append("\t" + s.Name.Replace(" ", "_").Replace(".", "_"));
                 }
                 sw.AppendLine();
             }

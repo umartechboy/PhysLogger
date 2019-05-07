@@ -20,6 +20,7 @@ namespace PhysLogger
 
             completeLogControl.DataPort = dataPort;
             dataPort.PacketReceived += completeLogControl.serialChannelControl1_PacketReceived;
+            dataPort.Disconnected += completeLogControl.serialChannelControl1_Disconnected;
         }
         protected override void OnLoad(EventArgs args)
         {
@@ -418,5 +419,77 @@ namespace PhysLogger
             return true;
         }
 
+        private void installArduinoDrivresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Forms.PhysLoggerUpdaterConsole ucf = new Forms.PhysLoggerUpdaterConsole();
+            ucf.Show();
+            ucf.WriteLine("Welcome to PhysLogger Console\r\n\r\n");
+            ucf.WriteLine("This will try to install original arduino drivers for your operating system.\r\nThe process requires administrative privileges.\r\n\r\n");
+            ucf.Write("Do you want to install the drivers now (Y/n)? ");
+            if (ucf.ReadLine() != "Y")
+            { ucf.SafeExit(); return; }
+            if (Environment.Is64BitOperatingSystem)
+            {
+                ucf.WriteLine("64 bit operating system detected");
+                ucf.WriteLine("Execute \"ArduinoDrivers\\dpinst-amd64.exe\"");
+                ucf.WriteLine("Awaiting for the process to exit");
+                try
+                {
+                    System.Diagnostics.Process.Start("ArduinoDrivers\\dpinst-amd64.exe").WaitForExit();
+                }
+                catch (Exception ex){ ucf.WriteLine(ex.Message); }
+            }
+            else
+            {
+                ucf.WriteLine("32 bit operating system detected");
+                ucf.WriteLine("Execute \"ArduinoDrivers\\dpinst-x86.exe\"");
+                ucf.WriteLine("Awaiting for the process to exit");
+                try
+                {
+                    System.Diagnostics.Process.Start("ArduinoDrivers\\dpinst-x86.exe").WaitForExit();
+                }
+                catch (Exception ex) { ucf.WriteLine(ex.Message); ucf.SafeExit(); }
+            }
+
+            ucf.Write("\r\nPlease note that it is recomended that you disconnect your PhysLogger and restart the software so that the new changes are correctly applied.");
+            ucf.SafeExit();
+
+        }
+
+        private void updateFirmwareToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Forms.PhysLoggerUpdaterConsole ucf = new Forms.PhysLoggerUpdaterConsole();
+            ucf.Show();
+            ucf.WriteLine("Welcome to PhysLogger Console\r\n\r\n");
+            ucf.WriteLine("You are about to update the firmawre for your PhysLogger\r\n");
+            if (completeLogControl.HW.Signature != Hardware.PhysLoggerHWSignature.Unknown)
+            {
+                completeLogControl.HW.UpdateFirmware(ucf, completeLogControl.DataPort.PortAddress, "");
+            }
+            else
+            {
+                ucf.WriteLine("The existing signature of the logger could not be verified.");
+                ucf.WriteLine("Choose one of the following firmwares to force an installation.\r\n");
+                var crsr = 1;
+                var files = System.IO.Directory.GetFiles("firmware", "*.hex");
+                foreach (var file in files)
+                {
+                    ucf.Write(crsr.ToString() + ": ");
+                    ucf.WriteLine(System.IO.Path.GetFileNameWithoutExtension(file));
+                    crsr++;
+                }
+                ucf.Write("\r\nChoose an option (1~N) or enter x to exit): ");
+                var op = ucf.ReadLine();
+                string fSelected = "";
+                try { fSelected = files[Convert.ToInt32(op) - 1]; }
+                catch
+                {
+                    ucf.SafeExit();
+                    return;
+                }
+                completeLogControl.HW.UpdateFirmware(ucf, completeLogControl.DataPort.PortAddress, fSelected);
+            }
+            ucf.SafeExit();
+        }
     }
 }
