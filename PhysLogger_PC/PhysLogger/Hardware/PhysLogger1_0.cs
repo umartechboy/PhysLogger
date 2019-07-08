@@ -132,7 +132,7 @@ namespace PhysLogger.Hardware
                 }
                 for (int i = 0; i < 3; i++)
                 {
-                    var op = new RangeSelectionOption(MaxInputVoltage / SupportedGains[i], true);
+                    var op = new ADCRangeSelectionOption(MaxInputVoltage / SupportedGains[i], true);
                     op.Checked = i == 0;
                     op.MenuItem.Click += RangeChange_Click;
                     op.Parent = differentialGainOps[index];
@@ -140,7 +140,7 @@ namespace PhysLogger.Hardware
                 }
 
                 // RSE gain (only one option)
-                var rsegOp = new RangeSelectionOption(MaxInputVoltage / SupportedGains[0], false);
+                var rsegOp = new ADCRangeSelectionOption(MaxInputVoltage / SupportedGains[0], false);
                 rsegOp.Checked = true;
                 RSEGainOps.Add(new GroupHeadOption("Input Range"));
                 rsegOp.Parent = RSEGainOps[index];
@@ -203,7 +203,7 @@ namespace PhysLogger.Hardware
         protected virtual void RangeChange_Click(object sender, EventArgs e)
         {
             var op = ((ToolStripMenuItemWithChannelOption)sender).AssociatedChannelOption;
-            var selectedOp = ((RangeSelectionOption)((ToolStripMenuItemWithChannelOption)sender).AssociatedChannelOption);
+            var selectedOp = ((ADCRangeSelectionOption)((ToolStripMenuItemWithChannelOption)sender).AssociatedChannelOption);
             var selectedRange = selectedOp.Range;
             var selectedGain = (int)Math.Round(MaxInputVoltage / selectedRange);
             var cID = op.TopParent.ID;

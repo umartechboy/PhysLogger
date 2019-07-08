@@ -118,7 +118,7 @@ namespace PhysLogger.Hardware
                         messageTBC = "";
                         return;
                     }
-                    if (command.PayLoad[0] == 2) // get Console Key
+                    else if (command.PayLoad[0] == 2) // get Console Key
                     {
                         if (!LConsole.IsActive)
                         {
@@ -141,6 +141,10 @@ namespace PhysLogger.Hardware
                         CommandSendRequest(com);
                         return;
                     }
+                    else
+                    {
+                        HandleMiscCommand(command);
+                    }
                 }
                 if (command.PacketID == PhysLoggerPacketCommandID.SetValue)
                 {
@@ -162,6 +166,7 @@ namespace PhysLogger.Hardware
                     else if (command.PayLoad[0] == 4) // ConsolMessageTBC
                     {
                         messageTBC += Encoding.UTF8.GetString(command.PayLoad, 1, command.PayLoadLength - 1);
+                        return;
                     }
                     else if (command.PayLoad[0] == 5) // console may exit
                     {
@@ -174,11 +179,13 @@ namespace PhysLogger.Hardware
                         RequestDisconnect();
                         return;
                     }
+                    else
+                        HandleMiscCommand(command);
                 }
                 HandleMiscCommand(command);
             }
         }
-        public virtual void AddI2CInstrument(int i2cAddress, int instrumentID)
+        public virtual void AddI2CInstrument(int instrumentID, int i2cAddress)
         { throw new NotImplementedException(); }
         public virtual void ChangeSamplingRate(float frequencyInHz)
         {

@@ -66,7 +66,7 @@ namespace ArduinoUploader.BootloaderProgrammers.Protocols.STK500v2
             var wrappedResponseBytes = new byte[300];
 
             // Discard bytes until we get a MessageStart
-            const int maxRetries = 256;
+            const int maxRetries = 10;
             var retryCounter = 0;
             while (retryCounter++ < maxRetries)
             {

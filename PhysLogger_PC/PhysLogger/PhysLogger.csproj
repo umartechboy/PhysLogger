@@ -95,12 +95,16 @@
     </Compile>
     <Compile Include="Hardware\ChannelOptions.cs" />
     <Compile Include="Hardware\Enums.cs" />
+    <Compile Include="Hardware\GenericInstrument.cs" />
+    <Compile Include="Hardware\I2CInstrument.cs" />
     <Compile Include="Hardware\Instruments.cs" />
     <Compile Include="Hardware\PhysLogger1_0.cs" />
     <Compile Include="Hardware\PhysLogger1_1.cs" />
     <Compile Include="Hardware\PhysLogger1_2.cs" />
     <Compile Include="Hardware\PhysLoggerVirtual.cs" />
+    <Compile Include="Hardware\PulseInstrument.cs" />
     <Compile Include="Maths\Function.cs" />
+    <Compile Include="Maths\InstrumentRange.cs" />
     <Compile Include="Maths\UnitConversion.cs" />
     <Compile Include="Plotting\PlotLabel.cs" />
     <Compile Include="LogControls\MinMaxLabel1.Designer.cs">

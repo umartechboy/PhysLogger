@@ -117,49 +117,54 @@ namespace PhysLogger.Maths
         public Function OuterFunction { get; set; }
         public static Function Parse(string str)
         {
-            string name = str.Substring(0, str.IndexOf("("));
-            string value = str.Substring(str.IndexOf("(") + 1);
-            value = value.Substring(0, value.Length - 1);
+            string name = str;
+            string value = "";
             var args = new List<object>();
-            int starts = 0;
-            bool quoteStarted = false;
-            for (int i = 0; i < value.Length; i++)
+            if (str.IndexOf("(") > 0 && str.IndexOf(")") > 0)
             {
-                if (value[i] == '"')
+                name = str.Substring(0, str.IndexOf("("));
+                value = str.Substring(str.IndexOf("(") + 1);
+                value = value.Substring(0, value.Length - 1);
+
+                int starts = 0;
+                bool quoteStarted = false;
+                for (int i = 0; i < value.Length; i++)
                 {
-                    if (!quoteStarted)
-                        quoteStarted = true;
-                    else
+                    if (value[i] == '"')
+                    {
+                        if (!quoteStarted)
+                            quoteStarted = true;
+                        else
+                        {
+                            string toAdd = value.Substring(0, i);
+                            args.Add(value.Substring(1, i - 1));
+                            quoteStarted = false;
+                        }
+                        continue;
+                    }
+                    if (quoteStarted)
+                        continue;
+                    if (value[i] == '[' || value[i] == '"')
+                        starts++;
+                    else if (value[i] == ']')
+                        starts--;
+                    if (value[i] == ',' && starts == 0 || i == value.Length - 1)
                     {
                         string toAdd = value.Substring(0, i);
-                        args.Add(value.Substring(1, i - 1));
-                        quoteStarted = false;
+                        if (value.Length - 1 == i)
+                        { toAdd = value; }
+                        List<float> vals = new List<float>();
+                        foreach (var toadd_ in toAdd.Split(new char[] { ',', '[', ']' }, StringSplitOptions.RemoveEmptyEntries))
+                            vals.Add(Convert.ToSingle(toadd_));
+                        if (vals.Count > 1)
+                            args.Add(vals.ToArray());
+                        else
+                            args.Add(vals[0]);
+                        value = value.Substring(i + 1);
+                        i = -1;
                     }
-                    continue;
-                }
-                if (quoteStarted)
-                    continue;
-                if (value[i] == '[' || value[i] == '"')
-                    starts++;
-                else if (value[i] == ']')
-                    starts--;
-                if (value[i] == ',' && starts == 0 || i == value.Length - 1)
-                {
-                    string toAdd = value.Substring(0, i);
-                    if (value.Length - 1 == i)
-                    { toAdd = value; }
-                    List<float> vals = new List<float>();
-                    foreach (var toadd_ in toAdd.Split(new char[] { ',', '[', ']' }, StringSplitOptions.RemoveEmptyEntries))
-                        vals.Add(Convert.ToSingle(toadd_));
-                    if (vals.Count > 1)
-                        args.Add(vals.ToArray());
-                    else
-                        args.Add(vals[0]);
-                    value = value.Substring(i + 1);
-                    i = -1;
                 }
             }
-            string[] parameters = value.Split(new char[] { ',', ')' }, StringSplitOptions.RemoveEmptyEntries);
             try
             {
                 return Function.Make(name, args.ToArray());

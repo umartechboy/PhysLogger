@@ -154,6 +154,21 @@ namespace PhysLogger.Hardware
             }
         }
     }
+    public class InstrumentRangeOption : ChannelOption
+    {
+        public InstrumentRange Range { get; protected set; }
+        public InstrumentRangeOption(InstrumentRange range)
+        {
+            Range = range;
+        }
+        public override string Title
+        {
+            get
+            {
+                return Range.Title;
+            }
+        }
+    }
     public class ChannelTypeOption : ChannelOption
     {
         public ChannelTypeOption(ChannelType Type)
@@ -220,10 +235,10 @@ namespace PhysLogger.Hardware
     //        }
     //    }
     //}
-    public class RangeSelectionOption : ChannelOption
+    public class ADCRangeSelectionOption : ChannelOption
     {
         public bool CanBeNegative { get; set; }
-        public RangeSelectionOption(float range, bool CanBeNegative)
+        public ADCRangeSelectionOption(float range, bool CanBeNegative)
         {
             this.CanBeNegative = CanBeNegative;
             this.Range = range;
@@ -253,6 +268,12 @@ namespace PhysLogger.Hardware
         {
             Function(this);
         }
+    }
+    public class InstrumentCommandActionOption : ActionOption
+    {
+        public InstrumentCommand Command { get; protected set; }
+        public InstrumentCommandActionOption(InstrumentCommand command, Func<ActionOption, bool> actionToCall) : base(command.Title, actionToCall)
+        { this.Command = command; }
     }
     public class LineOpacityOption : ChannelOption
     {

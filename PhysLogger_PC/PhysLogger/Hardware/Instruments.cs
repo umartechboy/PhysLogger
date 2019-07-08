@@ -39,25 +39,22 @@ namespace PhysLogger.Hardware
     {
         protected Instrument(
             string title,
-            int instrumentTypeIndex,
             UnitConversionCollection units,
-            CalibrationFunctionsCollection func,
+            CalibrationFunctionsCollection calibFunc,
             int preferredGain,
             ChannelType channelType)
         {
             //Label = label;
-            titleItem = new InstrumentTypeOption(this);
-            InstrumentTypeIndex = instrumentTypeIndex;
             menuItem = new InstrumentTypeOption(this);
             menuItem.SubOptions.Add(units.MenuItem);
-            if (func.Count > 0)
-                menuItem.SubOptions.Add(func.MenuItem);
+            if (calibFunc.Count > 0)
+                menuItem.SubOptions.Add(calibFunc.MenuItem);
 
             this.UnitConversions = units;
             this.Title = title;
-            if (func.Count == 0)
-                func.Add(new G1Function(), "");
-            this.calibTF = func;
+            if (calibFunc.Count == 0)
+                calibFunc.Add(new G1Function(), "");
+            this.calibTF = calibFunc;
             this.RequiredGain = preferredGain;
             this.ChannelType = channelType;
         }
@@ -77,9 +74,6 @@ namespace PhysLogger.Hardware
             protected set { menuItem = value; }
         }
         public string Title { get; protected set; } = "";
-        public int InstrumentTypeIndex { get; protected set; } = -1;
-        public int InstrumentAddress { get; protected set; } = -1;
-
 
         public virtual float TF(float voltage)
         {
@@ -105,27 +99,29 @@ namespace PhysLogger.Hardware
             return list;
         }
 
-        public static Instrument FromI2C(int i2cAddress, int instrumentID)
+        public static I2CInstrument FromI2C(int i2cAddress, int instrumentID)
         {
             InstrumentCollection list = new InstrumentCollection();
             foreach (var insFile in Directory.GetFiles("Instruments", "*.plf"))
             {
-                var ins = Instrument.FromFile(insFile);
-                if (ins != null)
+                var ins_ = FromFile(insFile);
+                if (ins_ != null)
                 {
-                    if (ins.ChannelType != ChannelType.I2C)
-                        continue;
-                    if (ins.InstrumentTypeIndex == instrumentID)
+                    I2CInstrument ins = null;
+                    if (ins_ is I2CInstrument)
                     {
-                        ins.InstrumentTypeIndex = instrumentID;
-                        ins.InstrumentAddress = i2cAddress;
-                        return ins;
+                        ins = (I2CInstrument)ins_;
+                        if (ins.InstrumentTypeIndex == instrumentID)
+                        {
+                            ins.InstrumentAddress = i2cAddress;
+                            return ins;
+                        }
                     }
                 }
             }
             return null;
         }
-
+        
         public static Instrument FromFile(string iFile)
         {
             try
@@ -133,14 +129,18 @@ namespace PhysLogger.Hardware
                 string[] iLines = File.ReadAllLines(iFile);
                 string title = Path.GetFileNameWithoutExtension(iFile);
                 string resetToOffsetString = "Reset to Offset", resetToOffsetDescription = "Enter a value";
+                
                 ChannelType icType = ChannelType.None;
-                int iIType = 0;
+                int i2cInsType = -1;
                 bool iHasCalib = true;
                 UnitConversionCollection units = null;
+                InstrumentRangeCollection ranges = null;
+                List<InstrumentCommand> iCommands = new List<InstrumentCommand>();
                 CalibrationFunctionsCollection calibTFCollection = new CalibrationFunctionsCollection(); ;
                 int iGain = 1;
                 bool resetToZeroEnabled = false, resetToOffsetEnabled = false;
                 units = new UnitConversionCollection();
+                ranges = new InstrumentRangeCollection();
                 foreach (var iLine in iLines)
                 {
                     var parts = iLine.Split(new char[] { '=' }, 2);
@@ -160,7 +160,7 @@ namespace PhysLogger.Hardware
                     else if (parts[0] == "channeltype")
                         icType = (ChannelType)Convert.ToByte(parts[1]);
                     else if (parts[0] == "instrumentid")
-                        iIType = Convert.ToInt16(parts[1]);
+                        i2cInsType = Convert.ToInt16(parts[1]);
                     else if (parts[0] == "hascalibration")
                         iHasCalib = parts[1].ToLower() == "true" || parts[1].ToLower() == "1" || parts[1].ToLower().StartsWith("enable") || parts[1].ToLower().StartsWith("yes");
                     else if (parts[0] == "resettozero")
@@ -171,11 +171,23 @@ namespace PhysLogger.Hardware
                         resetToOffsetString = parts[1];
                     else if (parts[0] == "resettooffsetdescription")
                         resetToOffsetDescription = parts[1];
+                    else if (parts[0] == "command") // only in i2c Instruments
+                    {
+                        var com = InstrumentCommand.Parse(parts[1]);
+                        if (com != null)
+                            iCommands.Add(com);
+                    }
                     else if (parts[0] == "unit")
                     {
                         var u = UnitConversion.Parse(parts[1]);
                         if (u != null)
                             units.Add(u);
+                    }
+                    else if (parts[0] == "range")
+                    {
+                        var r = InstrumentRange.Parse(parts[1]);
+                        if (r != null)
+                            ranges.Add(r);
                     }
                     else
                     { }
@@ -185,6 +197,10 @@ namespace PhysLogger.Hardware
                     units.Add(new UnitConversion("untitled", "", new G1Function()));
                 }
 
+                if (ranges.Count == 0)
+                {
+                    ranges.Add(new InstrumentRange("untitled", new G1Function(), 0));
+                }
 
                 var calibFiles = Directory.GetFiles("CalibrationData", title + "*.plf");
                 if (iHasCalib)
@@ -217,13 +233,28 @@ namespace PhysLogger.Hardware
                 if (units.Count == 0 || icType == ChannelType.None)
                     return null;
                 else
-                    return new GenericInstrument(title, iIType, units, resetToZeroEnabled, 
-                        resetToOffsetEnabled, 
-                        resetToOffsetString, 
-                        resetToOffsetDescription,
-                        calibTFCollection, iGain, icType);
+                {
+                    if (i2cInsType < 0)
+                    {
+                        return new GenericInstrument(title, units, resetToZeroEnabled,
+                          resetToOffsetEnabled,
+                          resetToOffsetString,
+                          resetToOffsetDescription,
+                          calibTFCollection, iGain, icType);
+                    }
+                    else
+                    {
+                        return new I2CInstrument(
+                            title, i2cInsType, units, ranges, iCommands, resetToZeroEnabled,
+                             resetToOffsetEnabled,
+                             resetToOffsetString,
+                             resetToOffsetDescription,
+                             calibTFCollection, iGain, icType);
+                    }
+                }
             }
-            catch (Exception ex) { return null; }
+            catch (Exception ex)
+            { return null; }
         }
         public static string[] GetStringParsableVariables(string text)
         {
@@ -260,82 +291,6 @@ namespace PhysLogger.Hardware
                     text = text.Replace("%" + parsable + "%", UnitConversions.Current.Unit);
             }
             return text;
-        }
-    }
-    public class GenericInstrument : Instrument
-    {
-        protected float outputOffset = 0;
-        protected string resetToOffsetDescription = "";
-        bool forceNextValue = false, resetOffset = false;
-        float valueToForce = 0;
-        public GenericInstrument(
-            string title,
-            int instrumentTypeIndex,
-            UnitConversionCollection units,
-            bool enableResetToZero, 
-            bool enableResetToOffset,
-            string resetToOffsetString,
-            string resetToOffsetDescription,
-            CalibrationFunctionsCollection func,
-            int preferredGain,
-            ChannelType channelType
-            ):base(title, instrumentTypeIndex, units, func, preferredGain, channelType)
-        {
-            if (enableResetToZero)
-                MenuItem.Actions.Add(new ActionOption("Reset to Zero", resetToZero));
-            if (enableResetToOffset)
-                MenuItem.Actions.Add(new ActionOption(resetToOffsetString, resetToOffset));
-            if(enableResetToOffset || enableResetToZero)
-                MenuItem.Actions.Add(new ActionOption("Reset to default offset", resetToDefaultOffset));
-            this.resetToOffsetDescription = resetToOffsetDescription;
-        }
-
-        public override float TF(float voltage)
-        {
-            float x = voltage * ActualGain / RequiredGain;
-            if (resetOffset)
-            {
-                outputOffset = 0;
-                resetOffset = false;
-            }
-            else
-            {
-                if (forceNextValue)
-                {
-                    forceNextValue = false;
-                    outputOffset = 0;
-                    outputOffset = -TF(voltage) + valueToForce;
-                }
-            }
-            float y = 0;
-            y = calibTF.Selected.TF.Evaluate(x);
-            y = UnitConversions.Current.TF.Evaluate(y) + outputOffset;
-            return y;
-        }
-        private bool resetToZero(object parameters)
-        {
-            forceNextValue = true;
-            valueToForce = 0;
-            return true;
-        }
-        private bool resetToOffset(object parameters)
-        {
-            var result = PhysLogger.Forms.AskFloat.ShowDialog(ParseStringVariables(resetToOffsetDescription), 25);
-            if (result.dr == System.Windows.Forms.DialogResult.OK)
-            {
-                forceNextValue = true;
-                valueToForce = result.Value;
-            }
-            return true;
-        }
-        private bool resetToDefaultOffset(object parameters)
-        {
-            resetOffset = true;
-            return true;
-        }
-        public override string ToString()
-        {
-            return Title;
         }
     }
 }
