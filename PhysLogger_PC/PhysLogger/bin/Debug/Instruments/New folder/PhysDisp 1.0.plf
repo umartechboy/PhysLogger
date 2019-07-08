@@ -1,0 +1,8 @@
+Title=PhysDisp 1.0
+InstrumentID=1
+ChannelType=2
+ResetToZero=Enabled
+HasCalibration=No
+ResetInput=No
+Unit=title:Distance&func:poly([50,0.1])&unit:mm
+Unit=title:Distance&func:poly([1.968503937007874015748031496063,0.003937007874015748031496062992126])&unit:inch

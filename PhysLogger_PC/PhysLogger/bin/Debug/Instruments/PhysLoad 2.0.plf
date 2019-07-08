@@ -1,0 +1,17 @@
+Title=PhysLoad 2.0
+InstrumentID=2
+ChannelType=2
+HasCalibration=No
+Unit=title:Mass&func:poly([50,0.1])&unit:g
+Range=title:100g&func:G1&code:1
+Range=title:200g&func:poly([0,2])&code:2
+Range=title:300g&func:poly([0,3])&code:3
+Range=title:500g&func:poly([0,5])&code:5
+Range=title:800g&func:poly([0,8])&code:8
+Range=title:1000g&func:poly([0,10])&code:10
+Range=title:1500g&func:poly([0,15])&code:15
+Range=title:2000g&func:poly([0,20])&code:20
+Range=title:3000g&func:poly([0,30])&code:30
+Range=title:4000g&func:poly([0,40])&code:40
+Range=title:5000g&func:poly([0,50])&code:50
+Command=title:Tare&code:3&DataType:uint8&Value:0

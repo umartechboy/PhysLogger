@@ -1,0 +1,7 @@
+Title=PhysLab Load Cell 1.0
+Gain=10
+ChannelType=0
+ResetToZero=Enabled
+ResetInput=No
+Unit=title:Load&func:poly([0,1])&unit:g
+Unit=title:Force&func:poly([0,9.812])&unit:mN

@@ -1,0 +1,9 @@
+﻿Title=PhysLab Thermocouple Module
+Gain=10
+ChannelType=0
+ResetToOffset=True
+ResetToOffsetString=Calibrate Now
+ResetToOffsetDescription=Enter the current temparature value in °C
+Unit=title:Temp&func:poly([0,1])&unit:°C
+Unit=title:Temp&func:poly([32,1.8])&unit:°F
+Unit=title:Temp&func:poly([273.16,1])&unit:K

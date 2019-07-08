@@ -1,0 +1,2 @@
+rmfile proj\bin\Debug\fileToBeDeleted.txt
+Version = 4

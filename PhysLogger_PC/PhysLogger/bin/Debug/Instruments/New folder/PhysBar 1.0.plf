@@ -1,0 +1,14 @@
+Title=PhysBar 1.0
+Gain=10
+ChannelType=0
+ResetToZero=Enabled
+ResetInput=No
+ResetToOffset=True
+ResetToOffsetString=Set current pressure
+ResetToOffsetDescription=Enter the current pressure in kPa to be set as current value
+// Set this to Zero if there is no calibration file
+HasCalibration=False
+Unit=title:Pressure&func:poly([0,84.44444])&unit:kPa
+Unit=title:Pressure&func:poly([0,0.83340182581])&unit:atm
+Unit=title:Pressure&func:poly([0,0.8444444])&unit:bar
+Unit=title:Pressure&func:poly([0,12.247630542])&unit:psi

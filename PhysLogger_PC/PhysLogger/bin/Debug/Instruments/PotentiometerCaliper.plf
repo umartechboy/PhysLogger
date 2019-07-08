@@ -1,0 +1,10 @@
+Title=Potentiometer Caliper
+ChannelType=1
+ResetToZero=Enabled
+ResetToOffset=True
+ResetToOffsetString=Set offset
+ResetToOffsetDescription=Enter the length in mm to be set as current value
+ResetInput=No
+Unit=title:Distance&func:poly([0, 1])&unit:mm
+Unit=title:Distance&func:poly([0, 0.1])&unit:cm
+Unit=title:Distance&func:poly([0, 0.03937007874015748031496062992126])&unit:inch

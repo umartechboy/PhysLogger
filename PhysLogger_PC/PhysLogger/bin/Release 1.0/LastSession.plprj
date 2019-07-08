@@ -1,0 +1,39 @@
+False
+0
+4
+Mass
+0
+255,0,128,64
+3
+0.5
+False
+True
+Infinity
+-Infinity
+Down TC
+0
+255,1,64,126
+3
+0.9
+False
+True
+Infinity
+-Infinity
+300 Turns
+0
+255,117,0,41
+3
+0.9
+False
+True
+Infinity
+-Infinity
+Hall Effect Sensor
+0
+255,0,0,0
+3
+0.9
+False
+True
+Infinity
+-Infinity

@@ -1,0 +1,2 @@
+copy proj\bin\Debug\fileToBeDeleted.txt
+Version = 3

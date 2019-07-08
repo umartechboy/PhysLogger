@@ -1,0 +1,140 @@
+C:\Users\umar.hassan\Documents\Visual Studio 2015\Projects\PhysLogger\PhysLogger\obj\Debug\PhysLogger.MainForm.resources
+C:\Users\umar.hassan\Documents\Visual Studio 2015\Projects\PhysLogger\PhysLogger\obj\Debug\PhysLogger.Properties.Resources.resources
+C:\Users\umar.hassan\Documents\Visual Studio 2015\Projects\PhysLogger\PhysLogger\obj\Debug\PhysLogger.csproj.GenerateResource.Cache
+C:\Users\umar.hassan\Documents\Visual Studio 2015\Projects\PhysLogger\PhysLogger\bin\Debug\PhysLogger.exe.config
+C:\Users\umar.hassan\Documents\Visual Studio 2015\Projects\PhysLogger\PhysLogger\bin\Debug\PhysLogger.exe
+C:\Users\umar.hassan\Documents\Visual Studio 2015\Projects\PhysLogger\PhysLogger\bin\Debug\PhysLogger.pdb
+C:\Users\umar.hassan\Documents\Visual Studio 2015\Projects\PhysLogger\PhysLogger\bin\Debug\FivePointNineVCSLibrary.dll
+C:\Users\umar.hassan\Documents\Visual Studio 2015\Projects\PhysLogger\PhysLogger\bin\Debug\FivePointNineVCSLibrary.pdb
+C:\Users\umar.hassan\Documents\Visual Studio 2015\Projects\PhysLogger\PhysLogger\obj\Debug\PhysLogger.csprojResolveAssemblyReference.cache
+C:\Users\umar.hassan\Documents\Visual Studio 2015\Projects\PhysLogger\PhysLogger\obj\Debug\PhysLogger.exe
+C:\Users\umar.hassan\Documents\Visual Studio 2015\Projects\PhysLogger\PhysLogger\obj\Debug\PhysLogger.pdb
+C:\Users\umar.hassan\Documents\Visual Studio 2015\Projects\PhysLogger\PhysLogger\obj\Debug\PhysLogger.LogControls.MinMaxLabel.resources
+C:\Users\umar.hassan\Documents\Visual Studio 2015\Projects\PhysLogger\PhysLogger\obj\Debug\PhysLogger.ChannelSelectCheckBox.resources
+C:\Users\umar.hassan\Documents\Visual Studio 2015\Projects\PhysLogger\PhysLogger\obj\Debug\PhysLogger.CompleteLogControl.resources
+C:\Users\umar.hassan\Documents\Visual Studio 2015\Projects\PhysLogger\PhysLogger\obj\Debug\PhysLogger.ChannelEditor.resources
+C:\Users\umar.hassan\Documents\Visual Studio 2015\Projects\PhysLogger\PhysLogger\obj\Debug\PhysLogger.LogPlotCascade4XUC.resources
+C:\Users\umar.hassan\Documents\Visual Studio 2015\Projects\PhysLogger\PhysLogger\bin\Debug\SlimDX.dll
+C:\Users\umar.hassan\Documents\Visual Studio 2015\Projects\PhysLogger\PhysLogger\bin\Debug\MathNet.Numerics.dll
+C:\Users\umar.hassan\Documents\Visual Studio 2015\Projects\PhysLogger\PhysLogger\bin\Debug\MathNet.Numerics.xml
+C:\Users\umar.hassan\Documents\Visual Studio 2015\Projects\PhysLogger - Direct3D\PhysLogger\bin\Debug\PhysLogger.exe.config
+C:\Users\umar.hassan\Documents\Visual Studio 2015\Projects\PhysLogger - Direct3D\PhysLogger\obj\Debug\PhysLogger.exe
+C:\Users\umar.hassan\Documents\Visual Studio 2015\Projects\PhysLogger - Direct3D\PhysLogger\obj\Debug\PhysLogger.pdb
+C:\Users\umar.hassan\Documents\Visual Studio 2015\Projects\PhysLogger - Direct3D\PhysLogger\bin\Debug\PhysLogger.exe
+C:\Users\umar.hassan\Documents\Visual Studio 2015\Projects\PhysLogger - Direct3D\PhysLogger\bin\Debug\PhysLogger.pdb
+C:\Users\umar.hassan\Documents\Visual Studio 2015\Projects\PhysLogger - Direct3D\PhysLogger\bin\Debug\FivePointNineVCSLibrary.dll
+C:\Users\umar.hassan\Documents\Visual Studio 2015\Projects\PhysLogger - Direct3D\PhysLogger\bin\Debug\SlimDX.dll
+C:\Users\umar.hassan\Documents\Visual Studio 2015\Projects\PhysLogger - Direct3D\PhysLogger\bin\Debug\MathNet.Numerics.dll
+C:\Users\umar.hassan\Documents\Visual Studio 2015\Projects\PhysLogger - Direct3D\PhysLogger\bin\Debug\FivePointNineVCSLibrary.pdb
+C:\Users\umar.hassan\Documents\Visual Studio 2015\Projects\PhysLogger - Direct3D\PhysLogger\bin\Debug\MathNet.Numerics.xml
+C:\Users\umar.hassan\Documents\Visual Studio 2015\Projects\PhysLogger - Direct3D\PhysLogger\obj\Debug\PhysLogger.csprojResolveAssemblyReference.cache
+C:\Users\umar.hassan\Documents\Visual Studio 2015\Projects\PhysLogger - Direct3D\PhysLogger\obj\Debug\PhysLogger.ChannelSelectCheckBox.resources
+C:\Users\umar.hassan\Documents\Visual Studio 2015\Projects\PhysLogger - Direct3D\PhysLogger\obj\Debug\PhysLogger.ChannelEditor.resources
+C:\Users\umar.hassan\Documents\Visual Studio 2015\Projects\PhysLogger - Direct3D\PhysLogger\obj\Debug\PhysLogger.LogPlotCascade4XUC.resources
+C:\Users\umar.hassan\Documents\Visual Studio 2015\Projects\PhysLogger - Direct3D\PhysLogger\obj\Debug\PhysLogger.MainForm.resources
+C:\Users\umar.hassan\Documents\Visual Studio 2015\Projects\PhysLogger - Direct3D\PhysLogger\obj\Debug\PhysLogger.LogControls.MinMaxLabel.resources
+C:\Users\umar.hassan\Documents\Visual Studio 2015\Projects\PhysLogger - Direct3D\PhysLogger\obj\Debug\PhysLogger.Properties.Resources.resources
+C:\Users\umar.hassan\Documents\Visual Studio 2015\Projects\PhysLogger - Direct3D\PhysLogger\obj\Debug\PhysLogger.CompleteLogControl.resources
+C:\Users\umar.hassan\Documents\Visual Studio 2015\Projects\PhysLogger - Direct3D\PhysLogger\obj\Debug\PhysLogger.csproj.GenerateResource.Cache
+D:\GoogleDrive1\LUMS\PhysLogger - Direct3D\PhysLogger\obj\Debug\PhysLogger.csprojResolveAssemblyReference.cache
+D:\GoogleDrive1\LUMS\PhysLogger - Direct3D\PhysLogger\obj\Debug\PhysLogger.ChannelSelectCheckBox.resources
+D:\GoogleDrive1\LUMS\PhysLogger - Direct3D\PhysLogger\obj\Debug\PhysLogger.ChannelEditor.resources
+D:\GoogleDrive1\LUMS\PhysLogger - Direct3D\PhysLogger\obj\Debug\PhysLogger.LogPlotCascade4XUC.resources
+D:\GoogleDrive1\LUMS\PhysLogger - Direct3D\PhysLogger\obj\Debug\PhysLogger.MainForm.resources
+D:\GoogleDrive1\LUMS\PhysLogger - Direct3D\PhysLogger\obj\Debug\PhysLogger.LogControls.MinMaxLabel.resources
+D:\GoogleDrive1\LUMS\PhysLogger - Direct3D\PhysLogger\obj\Debug\PhysLogger.Properties.Resources.resources
+D:\GoogleDrive1\LUMS\PhysLogger - Direct3D\PhysLogger\obj\Debug\PhysLogger.CompleteLogControl.resources
+D:\GoogleDrive1\LUMS\PhysLogger - Direct3D\PhysLogger\obj\Debug\PhysLogger.csproj.GenerateResource.Cache
+D:\GoogleDrive1\LUMS\PhysLogger - Direct3D\PhysLogger\bin\Debug\PhysLogger.exe.config
+D:\GoogleDrive1\LUMS\PhysLogger - Direct3D\PhysLogger\bin\Debug\PhysLogger.exe
+D:\GoogleDrive1\LUMS\PhysLogger - Direct3D\PhysLogger\bin\Debug\PhysLogger.pdb
+D:\GoogleDrive1\LUMS\PhysLogger - Direct3D\PhysLogger\bin\Debug\FivePointNine.LicenseManager.dll
+D:\GoogleDrive1\LUMS\PhysLogger - Direct3D\PhysLogger\bin\Debug\FivePointNineVCSLibrary.dll
+D:\GoogleDrive1\LUMS\PhysLogger - Direct3D\PhysLogger\bin\Debug\SlimDX.dll
+D:\GoogleDrive1\LUMS\PhysLogger - Direct3D\PhysLogger\bin\Debug\MathNet.Numerics.dll
+D:\GoogleDrive1\LUMS\PhysLogger - Direct3D\PhysLogger\bin\Debug\FivePointNineVCSLibrary.pdb
+D:\GoogleDrive1\LUMS\PhysLogger - Direct3D\PhysLogger\bin\Debug\MathNet.Numerics.xml
+D:\GoogleDrive1\LUMS\PhysLogger - Direct3D\PhysLogger\obj\Debug\PhysLogger.exe
+D:\GoogleDrive1\LUMS\PhysLogger - Direct3D\PhysLogger\obj\Debug\PhysLogger.pdb
+D:\GoogleDrive1\LUMS\PhysLogger - Direct3D\PhysLogger\bin\Debug\LoggerSimulator.exe
+D:\GoogleDrive1\LUMS\PhysLogger - Direct3D\PhysLogger\bin\Debug\LoggerSimulator.pdb
+C:\Users\umar.hassan\GoogleDrive\LUMS\PhysLogger - Direct3D\PhysLogger\bin\Debug\PhysLogger.exe.config
+C:\Users\umar.hassan\GoogleDrive\LUMS\PhysLogger - Direct3D\PhysLogger\bin\Debug\PhysLogger.exe
+C:\Users\umar.hassan\GoogleDrive\LUMS\PhysLogger - Direct3D\PhysLogger\bin\Debug\PhysLogger.pdb
+C:\Users\umar.hassan\GoogleDrive\LUMS\PhysLogger - Direct3D\PhysLogger\bin\Debug\FivePointNine.LicenseManager.dll
+C:\Users\umar.hassan\GoogleDrive\LUMS\PhysLogger - Direct3D\PhysLogger\bin\Debug\FivePointNineVCSLibrary.dll
+C:\Users\umar.hassan\GoogleDrive\LUMS\PhysLogger - Direct3D\PhysLogger\bin\Debug\LoggerSimulator.exe
+C:\Users\umar.hassan\GoogleDrive\LUMS\PhysLogger - Direct3D\PhysLogger\bin\Debug\MathNet.Numerics.dll
+C:\Users\umar.hassan\GoogleDrive\LUMS\PhysLogger - Direct3D\PhysLogger\bin\Debug\NCalc.dll
+C:\Users\umar.hassan\GoogleDrive\LUMS\PhysLogger - Direct3D\PhysLogger\bin\Debug\SlimDX.dll
+C:\Users\umar.hassan\GoogleDrive\LUMS\PhysLogger - Direct3D\PhysLogger\bin\Debug\FivePointNineVCSLibrary.pdb
+C:\Users\umar.hassan\GoogleDrive\LUMS\PhysLogger - Direct3D\PhysLogger\bin\Debug\LoggerSimulator.pdb
+C:\Users\umar.hassan\GoogleDrive\LUMS\PhysLogger - Direct3D\PhysLogger\bin\Debug\MathNet.Numerics.xml
+C:\Users\umar.hassan\GoogleDrive\LUMS\PhysLogger - Direct3D\PhysLogger\obj\Debug\PhysLogger.csprojResolveAssemblyReference.cache
+C:\Users\umar.hassan\GoogleDrive\LUMS\PhysLogger - Direct3D\PhysLogger\obj\Debug\PhysLogger.ChannelSelectCheckBox.resources
+C:\Users\umar.hassan\GoogleDrive\LUMS\PhysLogger - Direct3D\PhysLogger\obj\Debug\PhysLogger.ChannelEditor.resources
+C:\Users\umar.hassan\GoogleDrive\LUMS\PhysLogger - Direct3D\PhysLogger\obj\Debug\PhysLogger.LogPlotCascade4XUC.resources
+C:\Users\umar.hassan\GoogleDrive\LUMS\PhysLogger - Direct3D\PhysLogger\obj\Debug\PhysLogger.MainForm.resources
+C:\Users\umar.hassan\GoogleDrive\LUMS\PhysLogger - Direct3D\PhysLogger\obj\Debug\PhysLogger.LogControls.MinMaxLabel.resources
+C:\Users\umar.hassan\GoogleDrive\LUMS\PhysLogger - Direct3D\PhysLogger\obj\Debug\PhysLogger.Properties.Resources.resources
+C:\Users\umar.hassan\GoogleDrive\LUMS\PhysLogger - Direct3D\PhysLogger\obj\Debug\PhysLogger.CompleteLogControl.resources
+C:\Users\umar.hassan\GoogleDrive\LUMS\PhysLogger - Direct3D\PhysLogger\obj\Debug\PhysLogger.csproj.GenerateResource.Cache
+C:\Users\umar.hassan\GoogleDrive\LUMS\PhysLogger - Direct3D\PhysLogger\obj\Debug\PhysLogger.exe
+C:\Users\umar.hassan\GoogleDrive\LUMS\PhysLogger - Direct3D\PhysLogger\obj\Debug\PhysLogger.pdb
+C:\Users\umar.hassan\GoogleDrive\LUMS\PhysLogger\PhysLogger\bin\Debug\PhysLogger.exe.config
+C:\Users\umar.hassan\GoogleDrive\LUMS\PhysLogger\PhysLogger\obj\Debug\PhysLogger.exe
+C:\Users\umar.hassan\GoogleDrive\LUMS\PhysLogger\PhysLogger\obj\Debug\PhysLogger.pdb
+C:\Users\umar.hassan\GoogleDrive\LUMS\PhysLogger\PhysLogger\bin\Debug\PhysLogger.exe
+C:\Users\umar.hassan\GoogleDrive\LUMS\PhysLogger\PhysLogger\bin\Debug\PhysLogger.pdb
+C:\Users\umar.hassan\GoogleDrive\LUMS\PhysLogger\PhysLogger\bin\Debug\FivePointNine.LicenseManager.dll
+C:\Users\umar.hassan\GoogleDrive\LUMS\PhysLogger\PhysLogger\bin\Debug\FivePointNineVCSLibrary.dll
+C:\Users\umar.hassan\GoogleDrive\LUMS\PhysLogger\PhysLogger\bin\Debug\MathNet.Numerics.dll
+C:\Users\umar.hassan\GoogleDrive\LUMS\PhysLogger\PhysLogger\bin\Debug\NCalc.dll
+C:\Users\umar.hassan\GoogleDrive\LUMS\PhysLogger\PhysLogger\bin\Debug\SlimDX.dll
+C:\Users\umar.hassan\GoogleDrive\LUMS\PhysLogger\PhysLogger\bin\Debug\FivePointNineVCSLibrary.pdb
+C:\Users\umar.hassan\GoogleDrive\LUMS\PhysLogger\PhysLogger\bin\Debug\MathNet.Numerics.xml
+C:\Users\umar.hassan\GoogleDrive\LUMS\PhysLogger\PhysLogger\obj\Debug\PhysLogger.csprojResolveAssemblyReference.cache
+C:\Users\umar.hassan\GoogleDrive\LUMS\PhysLogger\PhysLogger\obj\Debug\PhysLogger.ChannelSelectCheckBox.resources
+C:\Users\umar.hassan\GoogleDrive\LUMS\PhysLogger\PhysLogger\obj\Debug\PhysLogger.ChannelEditor.resources
+C:\Users\umar.hassan\GoogleDrive\LUMS\PhysLogger\PhysLogger\obj\Debug\PhysLogger.LogPlotCascade4XUC.resources
+C:\Users\umar.hassan\GoogleDrive\LUMS\PhysLogger\PhysLogger\obj\Debug\PhysLogger.MainForm.resources
+C:\Users\umar.hassan\GoogleDrive\LUMS\PhysLogger\PhysLogger\obj\Debug\PhysLogger.LogControls.MinMaxLabel.resources
+C:\Users\umar.hassan\GoogleDrive\LUMS\PhysLogger\PhysLogger\obj\Debug\PhysLogger.Properties.Resources.resources
+C:\Users\umar.hassan\GoogleDrive\LUMS\PhysLogger\PhysLogger\obj\Debug\PhysLogger.CompleteLogControl.resources
+C:\Users\umar.hassan\GoogleDrive\LUMS\PhysLogger\PhysLogger\obj\Debug\PhysLogger.csproj.GenerateResource.Cache
+D:\GoogleDrive1\LUMS\PhysLogger\PhysLogger\bin\Debug\PhysLogger.exe.config
+D:\GoogleDrive1\LUMS\PhysLogger\PhysLogger\obj\Debug\PhysLogger.exe
+D:\GoogleDrive1\LUMS\PhysLogger\PhysLogger\obj\Debug\PhysLogger.pdb
+D:\GoogleDrive1\LUMS\PhysLogger\PhysLogger\bin\Debug\PhysLogger.exe
+D:\GoogleDrive1\LUMS\PhysLogger\PhysLogger\bin\Debug\PhysLogger.pdb
+D:\GoogleDrive1\LUMS\PhysLogger\PhysLogger\bin\Debug\FivePointNine.LicenseManager.dll
+D:\GoogleDrive1\LUMS\PhysLogger\PhysLogger\bin\Debug\FivePointNineVCSLibrary.dll
+D:\GoogleDrive1\LUMS\PhysLogger\PhysLogger\bin\Debug\LoggerSimulator.exe
+D:\GoogleDrive1\LUMS\PhysLogger\PhysLogger\bin\Debug\MathNet.Numerics.dll
+D:\GoogleDrive1\LUMS\PhysLogger\PhysLogger\bin\Debug\NCalc.dll
+D:\GoogleDrive1\LUMS\PhysLogger\PhysLogger\bin\Debug\SlimDX.dll
+D:\GoogleDrive1\LUMS\PhysLogger\PhysLogger\bin\Debug\FivePointNineVCSLibrary.pdb
+D:\GoogleDrive1\LUMS\PhysLogger\PhysLogger\bin\Debug\LoggerSimulator.pdb
+D:\GoogleDrive1\LUMS\PhysLogger\PhysLogger\bin\Debug\MathNet.Numerics.xml
+D:\GoogleDrive1\LUMS\PhysLogger\PhysLogger\obj\Debug\PhysLogger.csprojResolveAssemblyReference.cache
+D:\GoogleDrive1\LUMS\PhysLogger\PhysLogger\obj\Debug\PhysLogger.ChannelSelectCheckBox.resources
+D:\GoogleDrive1\LUMS\PhysLogger\PhysLogger\obj\Debug\PhysLogger.ChannelEditor.resources
+D:\GoogleDrive1\LUMS\PhysLogger\PhysLogger\obj\Debug\PhysLogger.LogPlotCascade4XUC.resources
+D:\GoogleDrive1\LUMS\PhysLogger\PhysLogger\obj\Debug\PhysLogger.MainForm.resources
+D:\GoogleDrive1\LUMS\PhysLogger\PhysLogger\obj\Debug\PhysLogger.LogControls.MinMaxLabel.resources
+D:\GoogleDrive1\LUMS\PhysLogger\PhysLogger\obj\Debug\PhysLogger.Properties.Resources.resources
+D:\GoogleDrive1\LUMS\PhysLogger\PhysLogger\obj\Debug\PhysLogger.CompleteLogControl.resources
+D:\GoogleDrive1\LUMS\PhysLogger\PhysLogger\obj\Debug\PhysLogger.csproj.GenerateResource.Cache
+C:\Users\umar.hassan\GoogleDrive\LUMS\PhysLogger\PhysLogger\bin\Debug\NLog.config
+C:\Users\umar.hassan\GoogleDrive\LUMS\PhysLogger\PhysLogger\bin\Debug\ArduinoSketchUploader.dll
+C:\Users\umar.hassan\GoogleDrive\LUMS\PhysLogger\PhysLogger\bin\Debug\ArduinoUploader.dll
+C:\Users\umar.hassan\GoogleDrive\LUMS\PhysLogger\PhysLogger\bin\Debug\CommandLine.dll
+C:\Users\umar.hassan\GoogleDrive\LUMS\PhysLogger\PhysLogger\bin\Debug\IntelHexFormatReader.dll
+C:\Users\umar.hassan\GoogleDrive\LUMS\PhysLogger\PhysLogger\bin\Debug\RJCP.SerialPortStream.dll
+C:\Users\umar.hassan\GoogleDrive\LUMS\PhysLogger\PhysLogger\bin\Debug\ArduinoSketchUploader.pdb
+C:\Users\umar.hassan\GoogleDrive\LUMS\PhysLogger\PhysLogger\bin\Debug\ArduinoUploader.pdb
+C:\Users\umar.hassan\GoogleDrive\LUMS\PhysLogger\PhysLogger\bin\Debug\CommandLine.xml
+C:\Users\umar.hassan\GoogleDrive\LUMS\PhysLogger\PhysLogger\bin\Debug\RJCP.SerialPortStream.pdb
+C:\Users\umar.hassan\GoogleDrive\LUMS\PhysLogger\PhysLogger\bin\Debug\RJCP.SerialPortStream.xml
+C:\Users\umar.hassan\GoogleDrive\LUMS\PhysLogger\PhysLogger\obj\Debug\PhysLogger.Forms.AskFloat.resources
+C:\Users\umar.hassan\GoogleDrive\LUMS\PhysLogger\PhysLogger\obj\Debug\PhysLogger.Forms.PhysLoggerUpdaterConsole.resources

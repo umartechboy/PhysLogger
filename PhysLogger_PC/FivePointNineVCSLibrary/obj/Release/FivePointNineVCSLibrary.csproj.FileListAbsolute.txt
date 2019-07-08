@@ -1,0 +1,12 @@
+C:\Users\umar.hassan\GoogleDrive\LUMS\PhysLogger - Direct3D\FivePointNineVCSLibrary\bin\Release\FivePointNineVCSLibrary.dll.config
+C:\Users\umar.hassan\GoogleDrive\LUMS\PhysLogger - Direct3D\FivePointNineVCSLibrary\bin\Release\FivePointNineVCSLibrary.dll
+C:\Users\umar.hassan\GoogleDrive\LUMS\PhysLogger - Direct3D\FivePointNineVCSLibrary\bin\Release\FivePointNineVCSLibrary.pdb
+C:\Users\umar.hassan\GoogleDrive\LUMS\PhysLogger - Direct3D\FivePointNineVCSLibrary\bin\Release\MathNet.Numerics.dll
+C:\Users\umar.hassan\GoogleDrive\LUMS\PhysLogger - Direct3D\FivePointNineVCSLibrary\bin\Release\SlimDX.dll
+C:\Users\umar.hassan\GoogleDrive\LUMS\PhysLogger - Direct3D\FivePointNineVCSLibrary\bin\Release\MathNet.Numerics.xml
+C:\Users\umar.hassan\GoogleDrive\LUMS\PhysLogger - Direct3D\FivePointNineVCSLibrary\obj\Release\FivePointNine.Properties.Resources.resources
+C:\Users\umar.hassan\GoogleDrive\LUMS\PhysLogger - Direct3D\FivePointNineVCSLibrary\obj\Release\FivePointNine.Windows.Controls.FlatNumericUpDown.resources
+C:\Users\umar.hassan\GoogleDrive\LUMS\PhysLogger - Direct3D\FivePointNineVCSLibrary\obj\Release\FivePointNine.Windows.Controls.SerialChannelControl.resources
+C:\Users\umar.hassan\GoogleDrive\LUMS\PhysLogger - Direct3D\FivePointNineVCSLibrary\obj\Release\FivePointNineVCSLibrary.csproj.GenerateResource.Cache
+C:\Users\umar.hassan\GoogleDrive\LUMS\PhysLogger - Direct3D\FivePointNineVCSLibrary\obj\Release\FivePointNineVCSLibrary.dll
+C:\Users\umar.hassan\GoogleDrive\LUMS\PhysLogger - Direct3D\FivePointNineVCSLibrary\obj\Release\FivePointNineVCSLibrary.pdb

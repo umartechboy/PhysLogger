@@ -1,0 +1,3 @@
+copy UpdateServer.exe
+copy UpdateServer.pdb
+Version = 6

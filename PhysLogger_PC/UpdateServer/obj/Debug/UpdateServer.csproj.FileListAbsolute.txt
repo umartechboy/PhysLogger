@@ -1,0 +1,16 @@
+C:\Users\umar.hassan\GoogleDrive\LUMS\PhysLogger\UpdateServer\bin\Debug\UpdateServer.exe
+C:\Users\umar.hassan\GoogleDrive\LUMS\PhysLogger\UpdateServer\bin\Debug\UpdateServer.pdb
+C:\Users\umar.hassan\GoogleDrive\LUMS\PhysLogger\UpdateServer\obj\Debug\UpdateServer.Properties.Resources.resources
+C:\Users\umar.hassan\GoogleDrive\LUMS\PhysLogger\UpdateServer\obj\Debug\UpdateServer.csproj.GenerateResource.Cache
+C:\Users\umar.hassan\GoogleDrive\LUMS\PhysLogger\UpdateServer\obj\Debug\UpdateServer.exe
+C:\Users\umar.hassan\GoogleDrive\LUMS\PhysLogger\UpdateServer\obj\Debug\UpdateServer.pdb
+C:\Users\umar.hassan\GoogleDrive\LUMS\PhysLogger\UpdateServer\obj\Debug\UpdateServer.Form1.resources
+C:\Users\umar.hassan\GoogleDrive\LUMS\PhysLogger\UpdateServer\obj\Debug\UpdateServer.UpdateClient.resources
+C:\Users\umar.hassan\GoogleDrive\LUMS\PhysLogger\UpdateServer\bin\Debug\UpdateServer.exe.config
+C:\Users\umar.hassan\GoogleDrive\LUMS\PhysLogger\UpdateServer\bin\Debug\credentials.json
+C:\Users\umar.hassan\GoogleDrive\LUMS\PhysLogger\UpdateServer\bin\Debug\Newtonsoft.Json.dll
+C:\Users\umar.hassan\GoogleDrive\LUMS\PhysLogger\UpdateServer\bin\Debug\Newtonsoft.Json.xml
+C:\Users\umar.hassan\GoogleDrive\LUMS\PhysLogger\UpdateServer\obj\Debug\UpdateServer.UpdateCreator.resources
+C:\Users\umar.hassan\GoogleDrive\LUMS\PhysLogger\UpdateServer\bin\Debug\DotNetZip.dll
+C:\Users\umar.hassan\GoogleDrive\LUMS\PhysLogger\UpdateServer\bin\Debug\DotNetZip.pdb
+C:\Users\umar.hassan\GoogleDrive\LUMS\PhysLogger\UpdateServer\bin\Debug\DotNetZip.xml

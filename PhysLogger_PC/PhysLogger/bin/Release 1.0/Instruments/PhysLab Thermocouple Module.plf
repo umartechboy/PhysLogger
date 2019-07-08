@@ -1,0 +1,6 @@
+﻿Title=PhysLab Thermocouple Module
+Gain=1
+ChannelType=0
+Unit=title:Temp&func:poly([0,1])&unit:°C
+Unit=title:Temp&func:poly([32,1.8])&unit:°F
+Unit=title:Temp&func:poly([273.16,1])&unit:K
