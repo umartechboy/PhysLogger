@@ -1,2 +1,5 @@
 
-[Dd]esktop*.ini
+[Dd]esktop.ini
+*.o
+*.d
+*.elf
